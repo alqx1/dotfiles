@@ -1,0 +1,58 @@
+* {
+    font-family: "SauceCodePro Nerd Font Mono";
+    color: white;
+    font-size: 15px;
+}
+
+.modules-left > widget:first-child > #workspaces {
+    margin-top: 10px
+}
+
+.modules-right > widget:last-child > #clock {
+    margin-bottom: 10px
+}
+
+window#waybar {
+    border-radius: 15px;
+    background: rgba(43, 48, 59, 0.4);
+}
+
+
+#workspaces label {
+    font-size: 20px;
+}
+
+#workspaces button {
+    background: transparent;
+    padding: 0 0px
+}
+
+#workspaces button:hover {
+    color: rgba(0, 0, 0, 0);
+    box-shadow: none;
+    border: none;
+}
+
+
+#battery {
+    padding: 0 5px;
+    color: black;
+    background: white;
+}
+
+#battery.critical {
+    color: white;
+    background: #C21807;
+}
+
+#battery.charging {
+    color: white;
+    background: #2c3e4c;
+}
+
+
+#clock {
+    margin-top: inherit;
+    font-size: 20px;
+    padding: 0 5px;
+}

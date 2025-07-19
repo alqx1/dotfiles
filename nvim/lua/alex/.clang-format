@@ -1,5 +1,6 @@
 AlignAfterOpenBracket: BlockIndent
 AllowShortFunctionsOnASingleLine: None
+AllowShortEnumsOnASingleLine: false
 BreakBeforeBraces: Custom
 BraceWrapping:
   BeforeCatch: true

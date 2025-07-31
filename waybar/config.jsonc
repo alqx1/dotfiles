@@ -40,7 +40,7 @@
 
     "clock": {
         "format": "{:%H\n%M}",
-        "format-alt": "{:%d. %m.\n%Y}",
+        "format-alt": "{:%d.%m.\n%Y}",
         "tooltip": false,
         "justify": "center"
     }

@@ -16,8 +16,8 @@
 @define-color fg_battery_crit  #ffffff;
 @define-color fg_battery_chg   #ffffff;
 
-@define-color bg_clock         #89a1b5;
-@define-color fg_clock         #ffffff;
+@define-color bg_clock         #e4f1fb;
+@define-color fg_clock         #2c303b;
 
 @define-color hover_fade       rgba(0, 0, 0, 0);
 
@@ -75,4 +75,3 @@ window#waybar {
     font-size: 20px;
     padding: 0 5px;
 }
-

@@ -88,5 +88,10 @@ return {
             update_in_insert = false,
             severity_sort = true,
         })
+
+        require('lspconfig').clangd.setup {
+            cmd = { "clangd" }, -- full path if needed
+            filetypes = { "c", "cpp", "objc", "objcpp" },
+        }
     end,
 }

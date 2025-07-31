@@ -21,7 +21,6 @@ M.config = function()
 
     mason_lspconfig.setup({
         ensure_installed = {
-            "clangd",
             "jdtls",
             "lua_ls",
             "pyright",

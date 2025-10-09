@@ -21,11 +21,11 @@ M.config = function()
 
     mason_lspconfig.setup({
         ensure_installed = {
-            "clangd",
             "jdtls",
             "lua_ls",
             "pyright",
-            "glsl_analyzer"
+            "glsl_analyzer",
+            "rust_analyzer"
         }
     })
 end

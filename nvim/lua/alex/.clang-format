@@ -1,10 +1,14 @@
 AlignAfterOpenBracket: BlockIndent
+
 AllowShortFunctionsOnASingleLine: None
 AllowShortEnumsOnASingleLine: false
+
 BreakBeforeBraces: Custom
 BraceWrapping:
   BeforeCatch: true
   BeforeElse: true
+
 UseTab: Never
 IndentWidth: 4
 ColumnLimit: 80
+IndentCaseLabels: true

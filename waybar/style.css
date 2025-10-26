@@ -1,22 +1,35 @@
+@define-color bg_bar #2c303b;
+/* @define-color bg_bar           rgba(44, 48, 59, 0.4); */
+
+@define-color fg_default       #e0e6ed;
+
+@define-color bg_active_ws     #89a1b5;
+@define-color fg_active        #ffffff;
+@define-color fg_inactive      #e0e6ed;
+
+@define-color bg_battery       #e4f1fb;
+@define-color bg_battery_crit  #C21807;
+@define-color bg_battery_chg   #2c3e4c;
+
+
+@define-color fg_battery       #2c303b;
+@define-color fg_battery_crit  #ffffff;
+@define-color fg_battery_chg   #ffffff;
+
+@define-color bg_clock         #e4f1fb;
+@define-color fg_clock         #2c303b;
+
+@define-color hover_fade       rgba(0, 0, 0, 0);
+
 * {
     font-family: "SauceCodePro Nerd Font Mono";
-    color: white;
     font-size: 15px;
-}
-
-.modules-left > widget:first-child > #workspaces {
-    margin-top: 10px
-}
-
-.modules-right > widget:last-child > #clock {
-    margin-bottom: 10px
+    color: @fg_default;
 }
 
 window#waybar {
-    border-radius: 15px;
-    background: rgba(43, 48, 59, 0.4);
+    background: @bg_bar;
 }
-
 
 #workspaces label {
     font-size: 20px;
@@ -24,34 +37,40 @@ window#waybar {
 
 #workspaces button {
     background: transparent;
-    padding: 0 0px
+    padding: 0 0px;
+    border-radius: 0;
+    color: @fg_inactive;
 }
 
 #workspaces button:hover {
-    color: rgba(0, 0, 0, 0);
+    color: @hover_fade;
     box-shadow: none;
-    border: none;
 }
 
+#workspaces button.active {
+    background: @bg_active_ws;
+    color: @fg_active;
+}
 
 #battery {
     padding: 0 5px;
-    color: black;
-    background: white;
+    color: @fg_battery;
+    background: @bg_battery;
 }
 
 #battery.critical {
-    color: white;
-    background: #C21807;
+    color: @fg_battery_crit;
+    background: @bg_battery_crit;
 }
 
 #battery.charging {
-    color: white;
-    background: #2c3e4c;
+    color: @fg_battery_chg;
+    background: @bg_battery_chg;
 }
 
-
 #clock {
+    color: @fg_clock;
+    background: @bg_clock;
     margin-top: inherit;
     font-size: 20px;
     padding: 0 5px;

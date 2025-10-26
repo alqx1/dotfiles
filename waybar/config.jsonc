@@ -3,12 +3,12 @@
     "modules-left": ["hyprland/workspaces"],
     "modules-right": ["battery#bat0", "battery#bat1", "clock"],
     "position": "left",
-    "margin": 10,
-    "spacing": 7,
+    "margin": 0,
+    "spacing": 2,
     
     "hyprland/workspaces" : {
         "move-to-monitor": true,
-        "format": "{icon}",
+        "format": "{name}",
         "format-icons": {
             "active": "",
             "default": ""
@@ -20,7 +20,7 @@
 
     "battery#bat0": {
         "bat": "BAT0",
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}%",
         "format-icons": ["", "", "", "", ""],
         "full-at": 85,
         "states": {
@@ -30,7 +30,7 @@
 
     "battery#bat1": {
         "bat": "BAT1",
-        "format": "{capacity}% {icon}",
+        "format": "{capacity}%",
         "format-icons": ["", "", "", "", ""],
         "full-at": 85,
         "states": {
@@ -40,7 +40,7 @@
 
     "clock": {
         "format": "{:%H\n%M}",
-        "format-alt": "{:%a\n%d. %b}",
+        "format-alt": "{:%d.%m.\n%Y}",
         "tooltip": false,
         "justify": "center"
     }

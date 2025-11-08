@@ -1,0 +1,143 @@
+-- cool sens: 0.37480068
+
+local waywall = require("waywall")
+local helpers = require("waywall.helpers")
+
+local resolutions = {
+    thin = helpers.toggle_res(320, 900),
+    eye  = helpers.toggle_res(320, 16384, 0.05),
+    wide = helpers.toggle_res(1920, 320),
+    zero = helpers.toggle_res(1920, 1080),
+}
+
+-- Eye magnifier
+helpers.res_mirror(
+    {
+        src = { x = 130, y = 7902, w = 60, h = 580 },
+        dst = { x = 0, y = 315, w = 800, h = 450 },
+    },
+    320, 16384
+)
+helpers.res_image(
+    "/home/alex/images/overlay.png",
+    {
+        dst = { x = 0, y = 315, w = 800, h = 450 },
+    },
+    320, 16384
+)
+
+-- Tall pie
+helpers.res_mirror(
+    {
+        src = { x = 0, y = 15980, w = 320, h = 260 },
+        dst = { x = 800, y = 586, w = 320, h = 260 },
+    },
+    320, 16384
+)
+
+-- O LEVEL
+helpers.res_mirror(
+    {
+        src       = { x = 173, y = 619, w = 113, h = 35 },
+        dst       = { x = 860, y = 100, w = 200, h = 70 },
+        color_key = {
+            input  = "#dddddd",
+            output = "#ff0000",
+        },
+    },
+    1920, 1080
+)
+
+-- F3 Client Chunk Cache
+helpers.res_mirror(
+    {
+        src       = { x = 101, y = 55, w = 27, h = 9 },
+        dst       = { x = 880, y = 484, w = 108, h = 36 },
+        color_key = {
+            input  = "#dddddd",
+            output = "#00ff00",
+        },
+    },
+    320, 900
+)
+
+-- F3 Entity Count
+helpers.res_mirror(
+    {
+        src       = { x = 0, y = 36, w = 49, h = 9 },
+        dst       = { x = 880, y = 520, w = 196, h = 36 },
+        color_key = {
+            input  = "#dddddd",
+            output = "#00ff00",
+        },
+    },
+    320, 900
+)
+
+-- Tall pie numbers
+helpers.res_mirror(
+    {
+        src = { x = 227, y = 16163, w = 84, h = 42 },
+        dst = { x = 1120, y = 650, w = 504, h = 252 },
+        shader = "pie_chart",
+    },
+    320, 16384
+)
+
+-- Thin pie numbers
+helpers.res_mirror(
+    {
+        src = { x = 227, y = 679, w = 84, h = 42 },
+        dst = { x = 1120, y = 650, w = 504, h = 252 },
+        shader = "pie_chart",
+    },
+    320, 900
+)
+
+local read_file = function(name)
+    local file = io.open("/home/alex/.config/waywall/" .. name, "r")
+    local data = file:read("*a")
+    file:close()
+
+    return data
+end
+
+local config = {
+    actions = {
+        ["Ctrl-m5"] = resolutions.eye,
+        ["Ctrl-m4"] = resolutions.thin,
+        ["Ctrl-h"] = resolutions.wide,
+        ["Ctrl-z"] = resolutions.zero,
+
+        ["Ctrl-Shift-k"] = function() waywall.exec("java -jar /home/alex/Downloads/Ninjabrain-Bot-1.5.1.jar") end,
+        ["k"] = function() helpers.toggle_floating() end,
+    },
+    input = {
+        layout = "us",
+
+        repeat_rate = 30,
+        repeat_delay = 200,
+
+        sensitivity = 1.0,
+        confine_pointer = false,
+
+        remaps = {
+        },
+    },
+    theme = {
+        background = "#303030ff",
+        cursor_theme = "cross",
+        cursor_icon = "cross",
+    },
+    shaders = {
+        ["pie_chart"] = {
+            vertex = read_file("pie_chart.vert"),
+            fragment = read_file("pie_chart.frag"),
+        },
+    },
+    experimental = {
+        tearing = false,
+    },
+}
+
+return config

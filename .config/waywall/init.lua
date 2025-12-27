@@ -1,13 +1,14 @@
--- cool sens: 0.37480068
+-- cool sens: 0.24087174
 
 local waywall = require("waywall")
 local helpers = require("waywall.helpers")
 
 local resolutions = {
     thin = helpers.toggle_res(320, 900),
-    eye  = helpers.toggle_res(320, 16384, 0.05),
+    eye  = helpers.toggle_res(320, 16384, 0.1),
     wide = helpers.toggle_res(1920, 320),
     zero = helpers.toggle_res(1920, 1080),
+    pre  = helpers.toggle_res(320, 16384, 1),
 }
 
 -- Eye magnifier
@@ -19,7 +20,7 @@ helpers.res_mirror(
     320, 16384
 )
 helpers.res_image(
-    "/home/alex/images/overlay.png",
+    "/home/alex/.config/waywall/overlay.png",
     {
         dst = { x = 0, y = 315, w = 800, h = 450 },
     },
@@ -108,8 +109,9 @@ local config = {
         ["Ctrl-m4"] = resolutions.thin,
         ["Ctrl-h"] = resolutions.wide,
         ["Ctrl-z"] = resolutions.zero,
+        ["Ctrl-g"] = resolutions.pre,
 
-        ["Ctrl-Shift-k"] = function() waywall.exec("java -jar /home/alex/Downloads/Ninjabrain-Bot-1.5.1.jar") end,
+        ["Ctrl-Shift-k"] = function() waywall.exec("java -jar /home/alex/downloads/Ninjabrain-Bot-1.5.1.jar") end,
         ["k"] = function() helpers.toggle_floating() end,
     },
     input = {
@@ -118,10 +120,11 @@ local config = {
         repeat_rate = 30,
         repeat_delay = 200,
 
-        sensitivity = 1.0,
+        sensitivity = 4.0,
         confine_pointer = false,
 
         remaps = {
+            ["T"] = "0"
         },
     },
     theme = {

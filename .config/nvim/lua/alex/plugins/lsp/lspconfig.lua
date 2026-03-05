@@ -79,6 +79,19 @@ M.config = function()
                 filetypes = { "c", "cpp", "objc", "objcpp" },
             },
         },
+        {
+            "zls",
+            {
+                cmd = { "zls" },
+                filetypes = { "zig", },
+            },
+        },
+        {
+            "texlab",
+            {
+                filetypes = { "tex", "markdown" }
+            }
+        }
     }
 
     for _, lsp in pairs(lsps) do

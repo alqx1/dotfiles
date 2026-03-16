@@ -2,8 +2,8 @@
 
 laptop_monitor="eDP-1"
 laptop_monitor_init="1920x1080@60, 0x0, 1.5"
-other_monitor="HDMI-A-2"
-other_monitor_init="1920x1080@60, auto-right, 1.25"
+other_monitor="HDMI-A-1"
+other_monitor_init="1920x1080@239.96, auto-left, 1"
 
 if hyprctl monitors | grep -q "HDMI"; then
     case "$1" in
@@ -16,6 +16,5 @@ if hyprctl monitors | grep -q "HDMI"; then
             hyprctl keyword monitor "$other_monitor, $other_monitor_init"
             ;;
     esac
-    eww open bar
 fi
 

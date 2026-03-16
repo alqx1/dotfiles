@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # clone GLFW
 git clone https://github.com/glfw/glfw
 cd glfw

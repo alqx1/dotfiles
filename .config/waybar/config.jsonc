@@ -1,7 +1,7 @@
 {
     "layer": "top",
     "modules-left": ["hyprland/workspaces"],
-    "modules-right": ["battery#bat0", "battery#bat1", "clock"],
+    "modules-right": ["battery#bat1", "clock"],
     "position": "left",
     "margin": 0,
     "spacing": 2,
@@ -18,21 +18,9 @@
         }
     },
 
-    "battery#bat0": {
-        "bat": "BAT0",
-        "format": "{capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "full-at": 85,
-        "states": {
-            "critical": 15
-        }
-    },
-
     "battery#bat1": {
         "bat": "BAT1",
         "format": "{capacity}%",
-        "format-icons": ["", "", "", "", ""],
-        "full-at": 85,
         "states": {
             "critical": 15
         }

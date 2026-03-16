@@ -26,10 +26,7 @@ export ZSH_COMPDUMP="$HOME/.cache/zsh/.zcompdump"
 
 export MANPAGER="nvim +Man!"
 
-export BROWSER=qutebrowser
-
-export PATH="$PATH:~/.cargo/bin"
-export PATH=/home/alex/.local/bin:/home/alex/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/alex/.cargo/bin:~/.cargo/bin
+export PATH="$PATH:/home/alex/fvm/default/bin:/home/alex/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/lib/rustup/bin:/home/alex/.cargo/bin:/home/alex/.zvm/bin"
 
 # 3ds dev things
 export DEVKITPRO=/opt/devkitpro

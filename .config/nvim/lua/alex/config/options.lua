@@ -1,17 +1,3 @@
-vim.api.nvim_set_hl(0, "ExtraWhitespace", { bg = "red" })
-
-vim.api.nvim_create_autocmd({"BufWinEnter","InsertLeave"}, {
-  pattern = "*",
-  callback = function()
-    vim.fn.matchadd("ExtraWhitespace", [[\s\+$]]) -- trailing
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufWinLeave", {
-  pattern = "*",
-  command = "call clearmatches()",
-})
-
 vim.cmd("let g:netrw_liststyle = 3")
 
 local opt = vim.opt

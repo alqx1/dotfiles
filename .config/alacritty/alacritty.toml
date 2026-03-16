@@ -1,6 +1,6 @@
 [general]
 import = [
-    "cyberdream.toml",
+    "./cyberdream.toml",
 ]
 
 [font]

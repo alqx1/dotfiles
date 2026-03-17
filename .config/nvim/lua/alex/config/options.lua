@@ -1,20 +1,7 @@
-vim.api.nvim_set_hl(0, "ExtraWhitespace", { bg = "red" })
-
-vim.api.nvim_create_autocmd({"BufWinEnter","InsertLeave"}, {
-  pattern = "*",
-  callback = function()
-    vim.fn.matchadd("ExtraWhitespace", [[\s\+$]]) -- trailing
-  end,
-})
-
-vim.api.nvim_create_autocmd("BufWinLeave", {
-  pattern = "*",
-  command = "call clearmatches()",
-})
-
-vim.cmd("let g:netrw_liststyle = 3")
-
 local opt = vim.opt
+
+vim.opt.list = true
+vim.opt.listchars = { trail = "·" }
 
 opt.relativenumber = true
 opt.number = true
@@ -27,15 +14,10 @@ opt.autoindent = true
 opt.ignorecase = true
 opt.smartcase = true
 
-opt.clipboard:append("unnamedplus")
-
 opt.splitright = true
 opt.splitbelow = true
 opt.scrolloff = 10
 
 opt.termguicolors = true
 
-vim.o.foldcolumn = '2' -- '0' is not bad
-vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
+opt.clipboard:append("unnamedplus")

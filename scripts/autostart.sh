@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Kill already running duplicate process
-_ps="pipewire pipewire-pulse wireplumber way-displays swww-daemon"
+_ps="pipewire pipewire-pulse way-displays swww-daemon"
 for _prs in $_ps; do
     if [ "$(pidof "${_prs}")" ]; then
          killall -9 "${_prs}"
@@ -10,7 +10,6 @@ for _prs in $_ps; do
 
 pipewire &
 pipewire-pulse &
-wireplumber &
 way-displays &
 swww-daemon &
 

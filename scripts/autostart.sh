@@ -15,6 +15,6 @@ way-displays &
 swww-daemon &
 
 ~/scripts/set_status.sh &
-sleep 1 & swww img ~/other/images/hard-seal-3.jpg &
+sleep 1 & swww img -t=none  ~/other/images/hard-seal-3.jpg &
 
 dwlb

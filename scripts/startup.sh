@@ -10,4 +10,6 @@ export GBM_BACKEND=nvidia-drm
 export __GL_GSYNC_ALLOWED=0
 export __GL_VRR_ALLOWED=0
 
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:~/.local/share/flatpak/exports/share"
+
 dbus-run-session dwl -s /home/alex/scripts/autostart.sh

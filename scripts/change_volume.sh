@@ -9,7 +9,11 @@ case $1 in
         wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
     ;;
 
-    toggle_mute)
+    volume_toggle)
         wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    ;;
+
+    mic_toggle)
+        wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
     ;;
 esac

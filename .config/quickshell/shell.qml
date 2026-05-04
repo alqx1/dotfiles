@@ -32,8 +32,7 @@ PanelWindow {
     }
 
     RowLayout {
-      anchors.left: parent.left
-      anchors.top: parent.top
+      anchors.centerIn: parent
       anchors.margins: 30
       spacing: 20
 
@@ -73,11 +72,23 @@ PanelWindow {
           styleColor: "#80000000"
 
           Process {
+            id: batproc
             command: ["cat", "/sys/class/power_supply/BAT1/capacity"]
             running: true
 
             stdout: StdioCollector {
               onStreamFinished: bat.text = this.text.trim() + "%"
+            }
+          }
+
+
+          Timer {
+            interval: 60 * 1000
+            running: true
+            repeat: true
+            onTriggered: {
+              batproc.running = false
+              batproc.running = true
             }
           }
         }
@@ -99,7 +110,6 @@ PanelWindow {
         style: Text.Outline
         styleColor: "#80000000"
       }
-
     }
   }
 }

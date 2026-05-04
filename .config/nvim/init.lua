@@ -1,3 +1,3 @@
-require("alex.config.remap")
-require("alex.config.options")
-require("alex.lazy")
+require('plugins')
+require('config.options')
+require('config.remap')

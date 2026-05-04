@@ -1,4 +1,4 @@
--- cool sens: 0.24087174
+-- cool sens: 0.02291165
 
 local waywall = require("waywall")
 local helpers = require("waywall.helpers")
@@ -7,7 +7,6 @@ local resolutions = {
     thin = helpers.toggle_res(320, 900),
     eye  = helpers.toggle_res(320, 16384, 0.1),
     wide = helpers.toggle_res(1920, 320),
-    zero = helpers.toggle_res(1920, 1080),
     pre  = helpers.toggle_res(320, 16384, 1),
 }
 
@@ -107,11 +106,10 @@ local config = {
     actions = {
         ["Ctrl-m5"] = resolutions.eye,
         ["Ctrl-m4"] = resolutions.thin,
-        ["Ctrl-h"] = resolutions.wide,
-        ["Ctrl-z"] = resolutions.zero,
-        ["Ctrl-g"] = resolutions.pre,
+        ["Ctrl-z"] = resolutions.wide,
+        ["Ctrl-x"] = resolutions.pre,
 
-        ["Ctrl-Shift-k"] = function() waywall.exec("java -jar /home/alex/downloads/Ninjabrain-Bot-1.5.1.jar") end,
+        ["Ctrl-Shift-k"] = function() waywall.exec("java -jar /home/alex/.config/waywall/bot.jar") end,
         ["k"] = function() helpers.toggle_floating() end,
     },
     input = {
@@ -121,7 +119,7 @@ local config = {
         repeat_delay = 200,
 
         sensitivity = 4.0,
-        confine_pointer = false,
+        confine_pointer = true,
 
         remaps = {
             ["T"] = "0"
@@ -129,8 +127,8 @@ local config = {
     },
     theme = {
         background = "#303030ff",
-        cursor_theme = "cross",
-        cursor_icon = "cross",
+        cursor_theme = "mc",
+        cursor_icon = "arrow",
     },
     shaders = {
         ["pie_chart"] = {

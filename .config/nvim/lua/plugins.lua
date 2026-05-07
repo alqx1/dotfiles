@@ -1,7 +1,9 @@
 local packages = {
+    -- theme
     'https://github.com/scottmckendry/cyberdream.nvim',
+
+    -- tree-sitter
     { src='https://github.com/nvim-treesitter/nvim-treesitter', version='main' },
-    'https://github.com/stevearc/oil.nvim',
 
     -- lsp
     'https://github.com/mason-org/mason-lspconfig.nvim',
@@ -14,23 +16,30 @@ local packages = {
     'https://github.com/hrsh7th/cmp-path',
     'https://github.com/hrsh7th/cmp-nvim-lsp',
 
-    -- fzf
+    -- file exploring
+    'https://github.com/stevearc/oil.nvim',
     'https://github.com/nvim-telescope/telescope.nvim',
     'https://github.com/nvim-lua/plenary.nvim',
     'https://github.com/nvim-telescope/telescope-fzf-native.nvim',
 };
 vim.pack.add(packages)
 
+-- theme
 vim.cmd('colorscheme cyberdream')
 
--- minimal requires
+-- tree-sitter
 require('nvim-treesitter').install({ 'zig', 'c', 'cpp', 'java', 'markdown' })
 
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'py' },
+    callback = function() 
+        vim.treesitter.start() 
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation for python
+    end,
+})
+
 -- oil
-
-local oil = require('oil')
-oil.setup()
-
+require('oil').setup()
 
 -- lsp
 require('mason').setup()
@@ -49,6 +58,13 @@ local lsps = {
         {
             cmd = { "zls" },
             filetypes = { "zig", },
+        },
+    },
+    {
+        "ruff",
+        {
+            cmd = { "ruff" },
+            filetypes = { "py", },
         },
     },
 }
@@ -77,4 +93,4 @@ cmp.setup({
     }),
 })
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+_ = require('cmp_nvim_lsp').default_capabilities()

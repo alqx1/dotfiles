@@ -8,8 +8,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     callback = function(ev)
         local opts = { buffer = ev.buf, silent = true }
 
-        opts.desc = 'Go to declaration'
-        keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        opts.desc = 'Show LSP definitions'
+        keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
 
         opts.desc = 'Show line diagnostics'
         keymap.set('n', '<leader>d', vim.diagnostic.open_float, opts)
@@ -27,6 +27,6 @@ keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files
 keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 
 keymap.set('n', '<leader>t', '<cmd>Oil<CR>', opts)
-keymap.set('n', '<leader>e', function()
+keymap.set('n', '<leader>T', function()
     vim.cmd('vsplit | Oil')
 end)

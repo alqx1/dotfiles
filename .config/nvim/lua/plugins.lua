@@ -30,11 +30,12 @@ vim.cmd('colorscheme cyberdream')
 -- tree-sitter
 require('nvim-treesitter').install({ 'zig', 'c', 'cpp', 'java', 'markdown' })
 
-vim.api.nvim_create_autocmd('FileType', {
-    pattern = { 'py' },
-    callback = function() 
-        vim.treesitter.start() 
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation for python
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("EnableTreesitterHighlighting", { clear = true }),
+    desc = "Try to enable tree-sitter syntax highlighting",
+    pattern = "*", -- run on *all* filetypes
+    callback = function()
+        pcall(function() vim.treesitter.start() end)
     end,
 })
 

@@ -118,17 +118,18 @@ local config = {
         repeat_rate = 30,
         repeat_delay = 200,
 
-        sensitivity = 4.0,
+        sensitivity = 5.0,
         confine_pointer = true,
 
         remaps = {
-            ["T"] = "0"
+            ["T"] = "0",
+            ["CapsLock"] = "LeftCtrl",
         },
     },
     theme = {
         background = "#303030ff",
         cursor_theme = "mc",
-        cursor_icon = "arrow",
+        cursor_icon = "cursor",
     },
     shaders = {
         ["pie_chart"] = {
